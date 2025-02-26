@@ -56,5 +56,28 @@
     <div class="cat-img" id="p">0</div>
 </div>
 
+<script>
+    let count = 0;
+    const catImg = document.getElementById('p');
+    catImg.textContent = count;
+
+    function addCount(){
+        count += 1;
+    }
+
+    document.addEventListener('mousedown', function (){
+        addCount();
+        catImg.textContent = count;
+        catImg.id = 'op';
+
+        const audio = new Audio('pops/pop1.mp3');
+        audio.play();
+    });
+
+    document.addEventListener('mouseup', function (){
+        catImg.id = 'p';
+    });
+
+</script>
 </body>
 </html>
