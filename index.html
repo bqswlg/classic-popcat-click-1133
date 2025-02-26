@@ -57,6 +57,9 @@
 </div>
 
 <script>
+
+
+
     let count = 0;
     const catImg = document.getElementById('p');
     catImg.textContent = count;
@@ -65,16 +68,28 @@
         count += 1;
     }
 
-    document.addEventListener('mousedown', function (){
+    function handleInteraction(){
         addCount();
         catImg.textContent = count;
         catImg.id = 'op';
 
         const audio = new Audio('pops/pop1.mp3');
         audio.play();
+    }
+
+    document.addEventListener('mousedown', function (){
+        handleInteraction();
     });
 
     document.addEventListener('mouseup', function (){
+        catImg.id = 'p';
+    });
+
+    document.addEventListener('keydown', function (){
+        handleInteraction();
+    });
+
+    document.addEventListener('keyup', function (){
         catImg.id = 'p';
     });
 
